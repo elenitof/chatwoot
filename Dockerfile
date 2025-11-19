@@ -1,0 +1,2 @@
+FROM chatwoot/chatwoot:latest
+
