@@ -1,11 +1,8 @@
 FROM chatwoot/chatwoot:latest
 
-# Corrige pasta tmp e permissões
+# mantém seu ajuste
 RUN mkdir -p tmp/pids tmp/cache tmp/sockets && \
     chmod -R 777 tmp
 
-# Garante que o entrypoint padrão seja usado
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
-# Inicia o servidor web (puma)
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+# restaura o ENTRYPOINT padrão do Chatwoot
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
